@@ -43,8 +43,8 @@ if submit:
     model = TFAutoModelForSequenceClassification.from_pretrained(MODEL)
     result = polarity_scores_roberta(user_input)
     label_pos = 'positive'
-    score = result[3]
+    score = round(result[3],2)
     st.success(f'{label_pos} sentiment (score: {score})')
     label_neg = 'negative'
-    score = result[1]
+    score = round(result[1],2)
     st.error(f'{label_neg} sentiment (score: {score})')
